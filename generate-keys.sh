@@ -31,10 +31,10 @@ SUCCESS!
 
 Keys have been generated in ./keys directory. Follow the steps below to complete ApplePay integration setup:
 
-1. Upload your new keys to your Apple dashboard to create a new Payment Processing Certificate.
+1. Upload the generated applepay.csr file to your Apple dashboard to create a new Payment Processing Certificate.
    (https://help.apple.com/developer-account/#/devb2e62b839)
 
-2. Download your Payment Processing Certificate from the Apple website and place it here: ./keys/applepay.cer
+2. Download your Payment Processing Certificate from the Apple website and place it here: ./keys/apple_pay.cer
 
 3. Run the ./prepare-yaml.sh script to populate your route configuration with the correct values.
 

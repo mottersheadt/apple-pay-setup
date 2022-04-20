@@ -52,7 +52,7 @@ This script will perform the following operations:
 Before running this script, ensure you have met the requirements below:
 
 1. You have run the ./generate-keys.sh and uploaded the keys to your Apple account.
-2. You have downloaded the applepay.cer file from the Apple dashboard and placed it here: ./keys/applepay.cer
+2. You have downloaded the apple_pay.cer file from the Apple dashboard and placed it here: ./keys/apple_pay.cer
 3. You know your ApplePay Merchant ID
 4. You have Access Credentials (username/password) for your vault. If not, these credentials can be generated from the VGS Dashboard.
 5. You have chosen a secret passphrase for the new keystore
@@ -84,8 +84,8 @@ PASSWORD=$(get_param "What is your vault's Access Credentials Password?" $PASSWO
 KEYSTORE_PASSPHRASE=$(get_param "Enter a secret passphrase for the new PKCS12 keystore" $KEYSTORE_PASSPHRASE)
 
 echo ">>> 1. Generate a PKCS12 keystore"
-echo "Converting applepay.cer to applepay.pem"
-openssl x509 -in ./keys/applepay.cer -text -inform DER -outform PEM -out ./keys/applepay.pem
+echo "Converting apple_pay.cer to applepay.pem"
+openssl x509 -in ./keys/apple_pay.cer -text -inform DER -outform PEM -out ./keys/applepay.pem
 echo "Creating keystore in ./keys/applepay.p12"
 openssl pkcs12 -export -out ./keys/applepay.p12 -inkey ./keys/applepay.key -in ./keys/applepay.pem -passout pass:$KEYSTORE_PASSPHRASE
 
