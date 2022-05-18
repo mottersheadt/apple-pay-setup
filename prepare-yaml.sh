@@ -67,6 +67,10 @@ if [ $CONT != "y" ]; then
     return
 fi
 
+echo "We rely on jq for parsing the json responses from the requests. Checking to see if jq is installed..."
+JQ_LOC=$(which jq)
+echo "jq is installed"
+
 MERCHANT_ID=$(get_param "What is your Apple Merchant ID?" $MERCHANT_ID)
 
 PROD_SAND=$(get_param "Is your vault ID for [s]andbox or [p]roduction? [s/p]" $PROD_SAND)
