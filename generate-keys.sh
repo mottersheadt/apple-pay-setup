@@ -18,12 +18,11 @@ if [ -d ./keys ]; then
     echo "Archiving current ./keys directory as ${ARCHIVE_DIR}"
     mv ./keys ./$ARCHIVE_DIR
 fi
-    
-  
+
 mkdir -p keys
 
 openssl ecparam -out keys/applepay.key -name prime256v1 -genkey
-openssl req -new -sha256 -key keys/applepay.key -nodes -nodes -out keys/applepay.csr -subj '/O=Company/C=US'
+openssl req -newkey rsa:2048 -new -sha256 -key keys/applepay.key -nodes -nodes -out keys/applepay.csr -subj '/O=Company/C=US'
 
 cat <<-EOF
 
